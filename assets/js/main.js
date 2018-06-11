@@ -19,7 +19,6 @@
 		var	$window = $(window),
 			$body = $('body');
 
-
 		// Disable animations/transitions until the page has loaded.
 			$body.addClass('is-loading');
 
@@ -116,5 +115,20 @@
 						.css('transition', 'none');
 
 	});
+
+	// $(document).ready(function() {
+/* show lightbox when clicking a thumbnail */
+    $('a.thumb').click(function(event){
+    	event.preventDefault();
+    	var content = $('.modal-body');
+    	content.empty();
+      	var title = $(this).attr("title");
+      	$('.modal-title').html(title);
+      	content.html($(this).html());
+				content.append('<button class="close" type="button" data-dismiss="modal">X</button>');
+      	$(".modal-profile").modal({show:true});
+    });
+
+  // });
 
 })(jQuery);
